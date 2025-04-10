@@ -5,114 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Tyger Society</title>
-</head>
-<body>
-    <header>
-        <div class="logo-container">
-            <div class="line line1"></div>
-            <div class="line line2"></div>
-            <div class="line line3"></div>
-            <div class="line line4"></div>
-        </div>
-        <div class="slogan" id="slogan">T.S. 2025</div>
-    </header>
-
-    <main>
-        <section id="members">
-            <h2>Meet Our Members</h2>
-            <div class="card-container" id="member-cards"></div>
-        </section>
-
-        <section id="login">
-            <h2>Member Login</h2>
-            <form id="login-form">
-                <input type="text" placeholder="Username" required>
-                <input type="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-            </form>
-        </section>
-
-        <section id="donation">
-            <h2>Donations</h2>
-            <p>Your support helps us grow!</p>
-            <input type="number" placeholder="Amount" required>
-            <button>Donate</button>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <form id="contact-form">
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </section>
-    </main>
-
-    <script>
-        const members = [
-            {
-                name: "Ava Martinez",
-                role: "President",
-                bio: "Drives the vision and vibe. Midnight strategist, early morning runner.",
-                linkedin: "https://linkedin.com/in/ava-martinez"
-            },
-            {
-                name: "Elias Zhang",
-                role: "Events Chair",
-                bio: "Curates unforgettable nights. One playlist ahead of the game.",
-                linkedin: "https://linkedin.com/in/elias-zhang"
-            },
-            {
-                name: "Juno Kim",
-                role: "Creative Director",
-                bio: "Designer of bold ideas and bolder aesthetics.",
-                linkedin: "https://linkedin.com/in/juno-kim"
-            },
-            {
-                name: "Leo Thompson",
-                role: "Communications",
-                bio: "Writes like he speaks — sharp, fast, clean.",
-                linkedin: "https://linkedin.com/in/leo-thompson"
-            },
-            {
-                name: "Selene Rivera",
-                role: "Treasurer",
-                bio: "Keeps the books and the society balanced.",
-                linkedin: "https://linkedin.com/in/selene-rivera"
-            },
-        ];
-
-        function createMemberCards() {
-            const cardContainer = document.getElementById('member-cards');
-
-            members.forEach(member => {
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.innerHTML = `
-                    <h3>${member.name}</h3>
-                    <p>${member.role}</p>
-                    <p>${member.bio}</p>
-                    <a href="${member.linkedin}" target="_blank">
-                        <img src="assets/icon_transparent.png" alt="LinkedIn" />
-                    </a>
-                `;
-                cardContainer.appendChild(card);
-            });
-        }
-
-        createMemberCards();
-
-        // Show T.S. 2025 after animation
-        setTimeout(() => {
-            document.getElementById('slogan').style.opacity = '1';
-        }, 2000); // Matches total animation time of lines
-    </script>
-
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Times New Roman', Times, serif; /* Use Times New Roman */
             background-color: #111;
             color: white;
             margin: 0;
@@ -130,113 +25,42 @@
 
         .logo-container {
             position: relative;
-            height: 200px; /* Adjust based on your logo size */
-        }
-
-        .line {
-            position: absolute;
-            width: 100px; /* Adjust based on your logo */
-            height: 5px;  /* Adjust thickness */
-            background-color: white; /* Change to your desired color */
-            opacity: 0; /* Start hidden */
-            transform: translateY(20px); /* Slightly move down for effect */
-        }
-
-        .line1 {
-            animation: fadeIn 1s forwards 0s; /* 0 delay */
-        }
-
-        .line2 {
-            animation: fadeIn 1s forwards 0.5s; /* 0.5s delay */
-        }
-
-        .line3 {
-            animation: fadeIn 1s forwards 1s; /* 1s delay */
-        }
-
-        .line4 {
-            animation: fadeIn 1s forwards 1.5s; /* 1.5s delay */
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .slogan {
-            font-size: 32px;
-            opacity: 0; /* Start hidden */
-            transition: opacity 1s ease;
-        }
-
-        h2 {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .card {
-            background: #222;
-            border: 1px solid #444;
-            border-radius: 5px;
-            margin: 10px;
-            padding: 20px;
-            width: 200px;
-            text-align: center;
-        }
-
-        .card img {
-            width: 50px;
             height: auto;
         }
 
-        /* Styles for Member Login */
-        #login, #donation, #contact {
-            padding: 20px;
-            text-align: center;
-            background: #333;
-            margin: 20px 0;
-            border-radius: 5px;
+        .tiger-image {
+            width: 60%; /* Adjust for desired size; main logo */
+            height: auto;
         }
 
-        #login-form, #contact-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .small-tiger {
+            position: absolute;
+            top: 20px; /* Adjust for position */
+            left: 20px; /* Adjust for position */
+            width: 50px; /* Smaller logo size */
+            height: auto;
         }
 
-        input {
-            margin: 10px 0;
-            padding: 10px;
-            width: 200px;
-            border: none;
-            border-radius: 5px;
-        }
-
-        button {
-            padding: 10px 20px;
-            border: none;
-            background-color: #f63; /* Change button color as needed */
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #c52; /* Change hover color as needed */
+        .slogan {
+            font-size: 36px; /* Adjust size for visibility */
+            opacity: 0; /* Start hidden */
+            transition: opacity 1s ease;
+            margin-top: 20px; /* Space between logo and text */
         }
     </style>
+</head>
+<body>
+    <header>
+        <img src="assets/tiger.png" alt="Tiger" class="tiger-image" />
+        <div class="slogan" id="slogan">T.S. 2025</div>
+        <img src="assets/tiger.png" alt="Small Tiger" class="small-tiger" />
+    </header>
+
+    <script>
+        // Show T.S. 2025 after a short delay
+        setTimeout(() => {
+            document.getElementById('slogan').style.opacity = '1';
+        }, 500); // Adjust for timing if needed
+    </script>
 </body>
 </html>
