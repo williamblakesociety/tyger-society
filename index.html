@@ -9,16 +9,44 @@
 <body>
     <header>
         <div class="logo-container">
-            <img src="assets/stripes_transparent.png" alt="Tyger Society Logo" class="animated-logo" />
+            <div class="line line1"></div>
+            <div class="line line2"></div>
+            <div class="line line3"></div>
+            <div class="line line4"></div>
         </div>
+        <div class="slogan" id="slogan">T.S. 2025</div>
     </header>
 
     <main>
         <section id="members">
             <h2>Meet Our Members</h2>
-            <div class="card-container" id="member-cards">
-                <!-- Member cards will be injected here -->
-            </div>
+            <div class="card-container" id="member-cards"></div>
+        </section>
+
+        <section id="login">
+            <h2>Member Login</h2>
+            <form id="login-form">
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </section>
+
+        <section id="donation">
+            <h2>Donations</h2>
+            <p>Your support helps us grow!</p>
+            <input type="number" placeholder="Amount" required>
+            <button>Donate</button>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
         </section>
     </main>
 
@@ -75,6 +103,11 @@
         }
 
         createMemberCards();
+
+        // Show T.S. 2025 after animation
+        setTimeout(() => {
+            document.getElementById('slogan').style.opacity = '1';
+        }, 2000); // Matches total animation time of lines
     </script>
 
     <style>
@@ -83,23 +116,63 @@
             background-color: #111;
             color: white;
             margin: 0;
+            padding: 0;
         }
 
         header {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             position: relative;
         }
 
-        .animated-logo {
-            animation: fadeInLines 2s forwards;
+        .logo-container {
+            position: relative;
+            height: 200px; /* Adjust based on your logo size */
         }
 
-        @keyframes fadeInLines {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+        .line {
+            position: absolute;
+            width: 100px; /* Adjust based on your logo */
+            height: 5px;  /* Adjust thickness */
+            background-color: white; /* Change to your desired color */
+            opacity: 0; /* Start hidden */
+            transform: translateY(20px); /* Slightly move down for effect */
+        }
+
+        .line1 {
+            animation: fadeIn 1s forwards 0s; /* 0 delay */
+        }
+
+        .line2 {
+            animation: fadeIn 1s forwards 0.5s; /* 0.5s delay */
+        }
+
+        .line3 {
+            animation: fadeIn 1s forwards 1s; /* 1s delay */
+        }
+
+        .line4 {
+            animation: fadeIn 1s forwards 1.5s; /* 1.5s delay */
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slogan {
+            font-size: 32px;
+            opacity: 0; /* Start hidden */
+            transition: opacity 1s ease;
         }
 
         h2 {
@@ -127,6 +200,42 @@
         .card img {
             width: 50px;
             height: auto;
+        }
+
+        /* Styles for Member Login */
+        #login, #donation, #contact {
+            padding: 20px;
+            text-align: center;
+            background: #333;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        #login-form, #contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #f63; /* Change button color as needed */
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c52; /* Change hover color as needed */
         }
     </style>
 </body>
