@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Tyger Society</title>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="assets/stripes_transparent.png" alt="Tyger Society Logo" class="animated-logo" />
+        </div>
+    </header>
+
+    <main>
+        <section id="members">
+            <h2>Meet Our Members</h2>
+            <div class="card-container" id="member-cards">
+                <!-- Member cards will be injected here -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const members = [
+            {
+                name: "Ava Martinez",
+                role: "President",
+                bio: "Drives the vision and vibe. Midnight strategist, early morning runner.",
+                linkedin: "https://linkedin.com/in/ava-martinez"
+            },
+            {
+                name: "Elias Zhang",
+                role: "Events Chair",
+                bio: "Curates unforgettable nights. One playlist ahead of the game.",
+                linkedin: "https://linkedin.com/in/elias-zhang"
+            },
+            {
+                name: "Juno Kim",
+                role: "Creative Director",
+                bio: "Designer of bold ideas and bolder aesthetics.",
+                linkedin: "https://linkedin.com/in/juno-kim"
+            },
+            {
+                name: "Leo Thompson",
+                role: "Communications",
+                bio: "Writes like he speaks — sharp, fast, clean.",
+                linkedin: "https://linkedin.com/in/leo-thompson"
+            },
+            {
+                name: "Selene Rivera",
+                role: "Treasurer",
+                bio: "Keeps the books and the society balanced.",
+                linkedin: "https://linkedin.com/in/selene-rivera"
+            },
+        ];
+
+        function createMemberCards() {
+            const cardContainer = document.getElementById('member-cards');
+
+            members.forEach(member => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <h3>${member.name}</h3>
+                    <p>${member.role}</p>
+                    <p>${member.bio}</p>
+                    <a href="${member.linkedin}" target="_blank">
+                        <img src="assets/icon_transparent.png" alt="LinkedIn" />
+                    </a>
+                `;
+                cardContainer.appendChild(card);
+            });
+        }
+
+        createMemberCards();
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+            margin: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        .animated-logo {
+            animation: fadeInLines 2s forwards;
+        }
+
+        @keyframes fadeInLines {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        h2 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: #222;
+            border: 1px solid #444;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .card img {
+            width: 50px;
+            height: auto;
+        }
+    </style>
+</body>
+</html>
