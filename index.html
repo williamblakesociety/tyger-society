@@ -26,11 +26,19 @@
         .logo-container {
             position: relative;
             height: auto;
+            text-align: center; /* Center the content */
         }
 
         .tiger-image {
-            width: 60%; /* Adjust for desired size; main logo */
+            width: 70%; /* Increased size for visibility */
             height: auto;
+            margin-bottom: 20px; /* Space between tiger and slogan */
+        }
+
+        .slogan {
+            font-size: 36px; /* Font size for slogan */
+            opacity: 0; /* Start hidden */
+            transition: opacity 1s ease;
         }
 
         .small-tiger {
@@ -40,20 +48,13 @@
             width: 50px; /* Smaller logo size */
             height: auto;
         }
-
-        .slogan {
-            font-size: 36px; /* Adjust size for visibility */
-            opacity: 0; /* Start hidden */
-            transition: opacity 1s ease;
-            margin-top: 20px; /* Space between logo and text */
-        }
     </style>
 </head>
 <body>
     <header>
-        <img src="assets/tiger.png" alt="Tiger" class="tiger-image" /> <!-- Main logo -->
+        <img src="assets/icon_transparent (1).png" alt="Tiger" class="tiger-image" /> <!-- Main logo -->
         <div class="slogan" id="slogan">T.S. 2025</div>
-        <img src="assets/tiger.png" alt="Small Tiger" class="small-tiger" /> <!-- Smaller logo in top left -->
+        <img src="assets/icon_transparent (1).png" alt="Small Tiger" class="small-tiger" /> <!-- Smaller logo in top left -->
     </header>
 
     <script>
